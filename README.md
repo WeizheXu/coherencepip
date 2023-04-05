@@ -13,7 +13,7 @@ conda activate envname
 ```
 2. Install the package with pip
 ```
-pip install https://github.com/WeizheXu/coherencepip/releases/download/v0.1.22/coherencecalculator-0.1.22-py3-none-any.whl --no-cache-dir --no-binary gensim
+pip install https://github.com/WeizheXu/coherencepip/releases/download/v0.1.23/coherencecalculator-0.1.23-py3-none-any.whl --no-cache-dir --no-binary gensim
 ```
 ## Basic Use Examples
 1. Imports:
