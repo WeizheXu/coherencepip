@@ -64,6 +64,9 @@ featureDict = features(vecLoader=vecs, inputTimeseries=tsDf)
 tardisResult = tardis(vecLoader=vecs, inputFeatures=featureDict)
 ```
 
+## Score Interpretation
+For tardisResults: higher scores = more incoherent (possible scores: 0-4) These are produced by ML models trained on the TALD scale. 
 
+For aggResults: higher scores = more coherent (possible scoeres: -1-1) These are cosine similarities acquired from embeddings. 
 
 ## Documentation
