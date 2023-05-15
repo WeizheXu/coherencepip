@@ -10,6 +10,7 @@ Xu W, Portanova J, Chander A, Ben-Zeev D, Cohen T. The Centroid Cannot Hold: Com
 ```
 conda create -n envname python=3.9.6
 conda activate envname
+conda install pip=23.0.1
 ```
 2. Install the package with pip
 ```
