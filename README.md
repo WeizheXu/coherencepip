@@ -6,6 +6,7 @@ Xu W, Wang W, Portanova J, Chander A, Campbell A, Pakhomov S, Ben-Zeev D, Cohen 
 Xu W, Portanova J, Chander A, Ben-Zeev D, Cohen T. The Centroid Cannot Hold: Comparing Sequential and Global Estimates of Coherence as Indicators of Formal Thought Disorder. InAMIA Annual Symposium Proceedings 2020 (Vol. 2020, p. 1315). American Medical Informatics Association.
 
 ## Installation
+Note: This requires CUDA version >= 10.2
 1. Create new conda environment with python version 3.9.6
 ```
 conda create -n envname python=3.9.6
@@ -48,9 +49,9 @@ inputData = '/path/to/directory' # (A directory contains a list of .txt files)
 tsDf = timeseries(vecLoader=vecs, inputDir=inputData)
 
 # or
-inputData = 'Some example texts.'
+# sample texts
+inputData = 'The memo materials have been infiltrated. They’re jumping around. I used to be good at the broad jump, because I’m tall. I fall. People put things in and then say it’s my fault. I used to be God, but I got demoted.'
 tsDf = timeseries(vecLoader=vecs, inputText=inputData)
-
 ```
 4. Generate aggregation coherence scores (Optional):
 ```
