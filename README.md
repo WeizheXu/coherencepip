@@ -17,6 +17,10 @@ conda install pip=23.0.1
 ```
 pip install https://github.com/WeizheXu/coherencepip/releases/download/v0.1.23/coherencecalculator-0.1.23-py3-none-any.whl --no-cache-dir --no-binary gensim
 ```
+or if you don't have Nvidia GPU, you can use the no cuda version that only uses Word2Vec-like embeddings.
+```
+pip install https://github.com/WeizheXu/coherencepip/releases/download/v0.1.23_nocuda/coherencecalculatornocuda-0.1.23-py3-none-any.whl --no-cache-dir --no-binary gensim
+```
 ## Basic Use Examples
 1. Imports:
 ```
