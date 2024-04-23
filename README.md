@@ -7,6 +7,7 @@ Xu W, Portanova J, Chander A, Ben-Zeev D, Cohen T. The Centroid Cannot Hold: Com
 
 ## Installation
 Note: This requires CUDA version >= 10.2
+
 1. Create new conda environment with python version 3.9.6
 ```
 conda create -n envname python=3.9.6
@@ -20,6 +21,10 @@ pip install https://github.com/WeizheXu/coherencepip/releases/download/v0.1.25/c
 or if you don't have Nvidia GPU, you can use the no cuda version that only uses Word2Vec-like embeddings.
 ```
 pip install https://github.com/WeizheXu/coherencepip/releases/download/v0.1.23_nocuda/coherencecalculatornocuda-0.1.23-py3-none-any.whl --no-cache-dir --no-binary gensim
+```
+Note: For CUDA version >= 12, might need to run
+```
+pip install --upgrade numba
 ```
 ## Basic Use Examples
 1. Imports:
