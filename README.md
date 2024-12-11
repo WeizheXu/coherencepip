@@ -6,25 +6,20 @@ Xu W, Wang W, Portanova J, Chander A, Campbell A, Pakhomov S, Ben-Zeev D, Cohen 
 Xu W, Portanova J, Chander A, Ben-Zeev D, Cohen T. The Centroid Cannot Hold: Comparing Sequential and Global Estimates of Coherence as Indicators of Formal Thought Disorder. InAMIA Annual Symposium Proceedings 2020 (Vol. 2020, p. 1315). American Medical Informatics Association.
 
 ## Installation
-Note: This requires CUDA version >= 10.2
+Note: Updated to support CUDA > 12.0 and Python > 3.12
 
-1. Create new conda environment with python version 3.9.6
+1. Create new conda environment with python version 3.12.7
 ```
-conda create -n envname python=3.9.6
+conda create -n envname python=3.12.7
 conda activate envname
-conda install pip=23.0.1
 ```
 2. Install the package with pip
 ```
-pip install https://github.com/WeizheXu/coherencepip/releases/download/v0.1.26/coherencecalculator-0.1.26-py3-none-any.whl --no-cache-dir --no-binary gensim
+pip install https://github.com/WeizheXu/coherencepip/releases/download/v0.2.0/coherencecalculator-0.2.0-py3-none-any.whl --no-cache-dir
 ```
 or if you don't have Nvidia GPU, you can use the no cuda version that only uses Word2Vec-like embeddings.
 ```
 pip install https://github.com/WeizheXu/coherencepip/releases/download/v0.1.23_nocuda/coherencecalculatornocuda-0.1.23-py3-none-any.whl --no-cache-dir --no-binary gensim
-```
-Note: For CUDA version >= 12, might need to run
-```
-pip install --upgrade numba
 ```
 ## Basic Use Examples
 1. Imports:
@@ -74,7 +69,22 @@ featureDict = features(vecLoader=vecs, inputTimeseries=tsDf)
 ```
 tardisResult = tardis(vecLoader=vecs, inputFeatures=featureDict)
 ```
-
+7. Train your own models：
+Input the target variable column name when creating tsDf
+```
+tsDf = timeseries(vecLoader=vecs, inputDf=inputData, fileCol='id', textCol='text', labelCol='label')
+```
+Train model with the feature dictionary
+```
+featureDict = features(vecLoader=vecs, inputTimeseries=tsDf)
+from coherencecalculator.tools.modeltrainer import ModelTrainer
+mt = ModelTrainer(featureDict)
+mt.saveModel(modelSavePath = '/modelpath.pickle', scalerSavePath='/scalerpath.pickle')
+```
+To use trained model
+```
+tardisResult = tardis(vecLoader=vecs, inputFeatures=featureDictTest, modelFile='/modelpath.pickle', scalerFile='/scalerpath.pickle')
+```
 ## Score Interpretation
 For tardisResults: higher scores = more incoherent (possible scores: 0-4) These are produced by ML models trained on the TALD scale. 
 
